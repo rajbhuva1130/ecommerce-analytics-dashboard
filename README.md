@@ -38,7 +38,7 @@ The goal is to build a **streaming data pipeline** that processes and visualizes
                                     +-------------------+
 
 ---
-
+```
 ## 🧰 Tech Stack
 
 | Layer        | Tools Used                       |
