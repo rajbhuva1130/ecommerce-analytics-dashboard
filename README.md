@@ -56,16 +56,17 @@ The goal is to build a **streaming data pipeline** that processes and visualizes
 
 ### 1. Clone the Repository
 
+```code
 git clone https://github.com/rajbhuva1130/ecommerce-analytics-dashboard.git
 cd ecommerce-analytics-dashboard
-
-text
+```
 
 ### 2. Install Python Dependencies
 
+```code
 pip install kafka-python faker
+```
 
-text
 > **Note:**  
 > If using Python 3.11 or later, ensure the `Scripts` directory is in your `PATH` if Faker warnings appear.
 
@@ -75,14 +76,17 @@ text
 
 ### 3. Start Kafka and Zookeeper (Docker)
 
+```code
 cd docker
 docker-compose up -d
+```
 
-text
 - Kafka: `localhost:9092`
 - Zookeeper: `localhost:2181`
 
 ### 4. (Optional) Create Kafka Topics
+
+```code
 
 docker exec -it docker-kafka-1 kafka-topics --create --topic transactions --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
 
@@ -90,7 +94,7 @@ docker exec -it docker-kafka-1 kafka-topics --create --topic product_listings --
 
 docker exec -it docker-kafka-1 kafka-topics --create --topic feedback --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
 
-text
+```
 
 ---
 
@@ -98,11 +102,12 @@ text
 
 ### 5. Start Kafka Producers (Run in 3 separate terminals)
 
+```code
 python kafka_producer/produce_transactions.py
 python kafka_producer/produce_listings.py
 python kafka_producer/produce_feedback.py
+```
 
-text
 - Each script sends simulated real-time data into its Kafka topic.
 
 ---
@@ -111,10 +116,10 @@ text
 
 ### 6. Stop the Kafka Environment
 
+```code
 cd docker
 docker-compose down
-
-text
+```
 
 ### 7. Stop Producers
 
